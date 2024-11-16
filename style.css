@@ -1,0 +1,586 @@
+/* ! Genel Tanımlamalar */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+:root{
+    --primary-color : #021832;
+    --secondary-color : #caa169;
+    --bg-color : #f4f4f4;
+    --bg-white : #fff;
+    --bg-black : #000;
+
+    --primary-font : "Poppins", sans-serif;
+    --primary-text : #021832;
+    --secondary-text : #caa169;
+    --text-white : #fff;
+    --text-black : #000;
+    --text-gray : #f4f4f4;
+}
+
+body{
+    background-color: var(--bg-white);
+    font-family: var(--primary-font);
+}
+
+h1{
+    font-size: 70px;
+    font-weight: 700;
+}
+
+/* ! Scrollbar ayarları */
+
+::-webkit-scrollbar{
+    width: 0.500rem;
+}
+
+
+::-webkit-scrollbar-track{
+    background-color: var(--secondary-color);
+}
+
+
+::-webkit-scrollbar-thumb{
+    background-color: var(--primary-color);
+    border-radius: 10px;
+}
+
+
+/* ! Navbar CSS */
+.active{
+    color: var(--secondary-color) !important;
+}
+
+.main-btn{
+    font-size: 1rem;
+    font-weight: 500;
+    background-color: transparent;
+    border: 0.0625rem solid var(--primary-color);
+    padding: 0.175rem 1rem;
+    border-radius: 3.125rem;
+    transition: 0.3s all ease-in-out;
+}
+
+.main-btn:hover{
+    background-color: var(--primary-color);
+    border-color : var(--secondary-color);
+}
+
+.main-btn a{
+    color: var(--primary-text);
+}
+
+.main-btn:hover a{
+    color: var(--secondary-text);
+}
+
+.header-wrapper .navbar{
+    background-color: var(--bg-white);
+    box-shadow: 0.5rem 0.375rem 0.375rem rgb(0 0 0 / 40%);
+}
+
+.header-wrapper .nav-item .nav-link{
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--primary-text);
+}
+
+.header-wrapper .nav-item .nav-link:hover{
+    color : var(--secondary-text)
+}
+
+
+.navbar.header-scrolled{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    background-color: rgb(255,255,255,0.85);
+    animation: 0.5s ease-in-out 0s fadeInDown;
+}
+
+
+@keyframes fadeInDown{
+    0%{
+        top: -30%;
+    }
+    50%{
+        top: -15%;
+    }
+    100%{
+        top: 0;
+    }
+}
+
+
+
+/* ! Anasayfadaki Banner CSS Kodları */
+.banner-wrapper{
+    height: 45.325rem;
+}
+
+.banner-wrapper .swiper{
+    width: 100%;
+    height: 90%;
+}
+
+.banner-wrapper .swiper-slide{
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.banner-wrapper .swiper-pagination-bullets .swiper-pagination-bullet{
+    width: 0.9375rem;
+    height: 0.9375rem;
+    background-color: var(--secondary-color);
+    border: 0.0625rem solid var(--bg-white);
+}
+
+.swiper-slide .letter-spacing{
+    letter-spacing: 2px;
+    font-style: italic;
+    text-shadow: 2px 2px 2px var(--secondary-color);
+    font-family: var(--primary-font);
+}
+
+
+/* ! Rezervasyon alanı (Booking Area) */
+.margin{
+    margin: -4rem 0;
+    position: relative;
+    z-index: 2;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--bg-white);
+    box-shadow: 0 0.625rem 0.925rem rgb(0,0,0,0.10);
+}
+
+
+/* ! Hakkımızda Bölümü */
+.my-6{
+    margin-top: 100px;
+}
+
+h3{
+    font-weight: 700;
+}
+
+#hakkimizda p{
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+h3 span{
+    color: var(--secondary-color);
+}
+
+#hakkimizda .btn{
+    color: var(--primary-color);
+}
+
+#hakkimizda .btn:hover{
+    color: var(--text-white)
+}
+
+
+/* ! Odalar Bölümü */
+
+.btn{
+    color: var(--secondary-text);
+    border: 1px solid var(--secondary-color);
+}
+
+.btn:hover{
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    background-color: var(--secondary-color);
+}
+
+.room-items{
+    position: relative;
+    overflow: hidden;
+}
+
+.room-items .room-photo{
+    border: 3px solid var(--secondary-color) !important;
+}
+
+.room-items img{
+    transition: all 0.5s ease;
+}
+
+.room-items:hover img{
+    transform: scale(1.2);
+}
+
+.room-items::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0;
+    z-index: 1;
+    transition: all 0.4s ease-in;
+}
+
+.room-items:hover::before{
+    opacity: 0.6;
+}
+
+.room-item-wrap{
+    position: absolute;
+    left: 1.875rem;
+    right: 1.875rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.room-items .room-content{
+    border: 1px solid var(--bg-white);
+    padding: 5rem 1.875rem;
+    transition: 0.5s all ease-in;
+    opacity: 0;
+    transform: scale3d(1.2,1.2,1.2);
+}
+
+.room-items:hover .room-content{
+    opacity: 1;
+    transform: scale3d(1,1,1);
+}
+
+
+/* ! Servislerimiz Bölümü */
+.bg-gray{
+    background-color: #F4F4F4;
+}
+
+.col-lg-5{
+    padding: 2rem 0.5rem;
+}
+
+.service-menu-area p span{
+    color: var(--secondary-text);
+}
+
+.service-menu-area .nav-item{
+    margin-bottom: 2.5rem !important;
+}
+
+.service-icon{
+    width: 5.625rem;
+    height: 5.625rem;
+    border-radius: 50%;
+    background-color: var(--secondary-color);
+    float: left;
+    transition: all 0.3s ease-in-out;
+}
+
+.service-icon:hover, .service-menu-area ul li a.active .service-icon{
+    background-color: var(--primary-color);
+}
+
+
+.service-menu-area ul li:nth-child(1){
+    margin-left: -0.375rem;
+}
+
+.service-menu-area ul li:nth-child(2){
+    margin-left: -2.9375rem;
+}
+
+.service-menu-area ul li:nth-child(3){
+    margin-left: -5.375rem;
+}
+
+.service-menu-area ul li:nth-child(4){
+    margin-left: -7.8125rem;
+}
+
+
+
+/* ! continer bolumu  */
+
+.counter{
+    background-image:linear-gradient(rgba(0, 0, 0, 0.656),rgba(0, 0, 0, 0.284)), url(img/counter-bg.webp);
+
+    padding: 3.5rem;
+    display: flex;
+    align-items: center;
+}
+.counter h3{
+    color: var(--bg-white);
+}
+.counter p{
+    font-weight: lighter;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+/* ! team bolumu */
+
+.card{
+    position: relative;
+    overflow: hidden;
+}
+
+.team-info{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--secondary-color);
+    padding-top: 1.2rem;
+    margin-bottom: -4rem;
+    transition: 0.4s all ease-in-out;
+}
+.team-info h5,
+.team-info p{
+    color: var(--primary-color);
+    font-weight: 600;
+}
+.team-info p{
+    font-style: italic;
+}
+
+.card:hover .team-info{
+    margin-bottom: 0;
+}
+
+.team-info .social-network{
+    background-color: var(--primary-color);
+    padding: 1rem !important;
+}
+
+.team-info .social-network li a{
+    text-decoration: none;
+}
+
+.team-info .social-network li a i{
+    width: 30px;
+    height: 30px;
+    border: 1px solid white;
+    border-radius: 50%;
+    color: var(--bg-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.team-info .social-network li a i:hover{
+    color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
+}
+
+.mt-6{
+    margin-top: 100px;
+}
+.mt-7{
+    margin-top: 200px;
+}
+
+/* ! galery bolumu */
+.gallery-wrapper .gallery-item {
+    position: relative;
+}
+
+.gallery-wrapper .gallery-item::before,
+.gallery-wrapper .gallery-item::after,
+.gallery-wrapper .gallery-item-content::before,
+.gallery-wrapper .gallery-item-content::after {
+    content: "";
+    width: 50%;
+    height: 50%;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease, left 0.5s ease;
+}
+
+.gallery-wrapper .gallery-item::after {
+    top: 50%;
+}
+
+.gallery-wrapper .gallery-item:hover::after {
+    top: 0;
+    opacity: 1;
+}
+
+.gallery-wrapper .gallery-item:hover::before {
+    left: 50%;
+    opacity: 1;
+}
+
+.gallery-wrapper .gallery-item-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.gallery-wrapper .gallery-item:hover .gallery-item-content {
+    opacity: 1;
+}
+
+.gallery-wrapper .gallery-item-content::before {
+    top: 50%;
+    left: 50%;
+    opacity: 1;
+}
+
+.gallery-wrapper .gallery-item-content::after {
+    top: 50%;
+    left: 50%;
+}
+
+.gallery-wrapper .gallery-item:hover .gallery-item-content::after {
+    left: 0;
+    opacity: 1;
+}
+
+/* ! blog bolumu */
+
+.pricing-card{
+    box-shadow: 0.250rem 0.250rem 125rem ; 
+    color: var(--secondary-color);
+}
+
+.pricing-card:hover{
+    color: var(--primary-color);
+}
+.signup-btn{
+
+    width: 70%;
+    margin: auto;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    transition: 0.3s all ease-in-out;
+}
+ 
+.signup-btn:hover{
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.blog-content2{
+    position: absolute;
+    right: 0;
+    margin-top: -6rem;
+    background-color: var(--bg-white);
+    box-shadow: 0.125rem 0.125rem gray;
+}
+
+
+/* ! our partner bolumu */
+.our-partner{
+    /* margin-top: 350px; */
+}
+.swiper-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.swiper-slide {
+    flex-shrink: 0;
+    width: auto; 
+    padding: 10px;
+}
+
+.swiper-slide img {
+    max-width: 100%;
+    height: auto;
+    display: inline-block;
+}
+
+/* ! footer bolumu */
+.labels a{
+    transition: 0.3s all ease;
+}
+.labels a:hover{
+    color: var(--secondary-color) !important;
+    margin-left: 10px;
+}
+
+.outline{
+    border: 1px solid white;
+    color: #6c757d !important;
+}
+.outline:focus{
+    border: 1px solid var(--secondary-color);
+}
+.outline::placeholder{
+    color: #6c757d;
+}
+.labelss li{
+    width: 30px;
+    height: 30px;
+    border: 1px solid white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center !important;
+    background-color: var(--secondary-color);
+}
+.labelss li a{
+    color: var(--primary-color);
+}
+
+/* ! responsive  kismi*/
+
+@media screen and (max-width:992px){
+    #hakkimizda{
+        margin-top: 200px;
+    }
+}
+@media screen and (max-width:992px){
+    #hakkimizda{
+        margin-top: 300px;
+    }
+}
+
+@media screen and (max-width:992px){
+    .service-menu-area ul li:nth-child(1){
+        margin-top: 20px;
+        margin-left: 0;
+    }
+    
+    .service-menu-area ul li:nth-child(2){
+        margin-left: 0;
+    }
+    
+    .service-menu-area ul li:nth-child(3){
+        margin-left: 0;
+    }
+    
+    .service-menu-area ul li:nth-child(4){
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width:490px){
+    #hakkimizda img{
+        width: 100%;
+    }
+}
+@media screen and (max-width:768px){ 
+    #blog .col-12{
+        margin-bottom: 200px;
+    }
+}
